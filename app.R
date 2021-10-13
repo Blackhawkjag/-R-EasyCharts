@@ -1,4 +1,5 @@
 
+
 library(shiny)
 library(shinythemes)
 
@@ -42,12 +43,12 @@ ui <- fluidPage(theme = shinytheme("superhero"),
         tabPanel("BarPlot",
                  sidebarPanel(
                    tags$h3("BarPlots!"),
-                   textInput("BoxData1","Data Point 1", ""),
-                   textInput("BoxData2","Title", ""),
-                   textInput("BoxData3","Xlab", ""),
-                   textInput("BoxData4","ylab", ""),
+                   textInput("BarData1","Data Point 1", ""),
+                   textInput("BarData2","Title", ""),
+                   textInput("BarData3","Xlab", ""),
+                   textInput("BarData4","ylab", ""),
                  ),
-                 mainPanel(plotOutput("boxplot")))))
+                 mainPanel(plotOutput("barplot")))))
                    
                  
         
@@ -98,18 +99,20 @@ server <- function(input, output) {
     })
     
     #Barplot Shit
-    output$boxplot <- renderPlot({
-      boxplotv1 <- as.integer(strsplit(input$BoxData1, ",")[[1]])
-      boxtitle <- input$BoxData2
-      boxxlab <- input$BoxData3
-      Boxylab <- input$BoxData4
+    output$barplot <- renderPlot({
+      barplotv1 <- as.integer(strsplit(input$BarData1, ",")[[1]])
+      bartitle <- input$BarData2
+      barxlab <- input$BarData3
+      Barylab <- input$BarData4
+      
+      
       
       
       #Draw Barplot
-      barplot(boxplotv1,
-              main=boxtitle,
-              xlab=boxxlab,
-              ylab=Boxylab,
+      barplot(barplotv1,
+              main=bartitle,
+              xlab=barrxlab,
+              ylab=Barylab,
               col="blue",
               names.arg=c("test1","test2","test3","test4"))
               
@@ -122,5 +125,3 @@ server <- function(input, output) {
 
 
 shinyApp(ui = ui,  server = server)
-
-
