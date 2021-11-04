@@ -23,6 +23,7 @@ ui <- fluidPage(theme = shinytheme("superhero"),
                                         textInput("BoxplotTitle", "Boxplot Title", ""),
                                         textInput("Boxplotxlab", "X-Label", ""),
                                         textInput("Boxplotylab", "Y-Label", ""),
+                                        tags$a(href='http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf',"List of Colors"),
                                         textInput("Boxcolor1", "Color 1", ""),
                                         textInput("Boxcolor2", "Color 2", ""),
                                         
