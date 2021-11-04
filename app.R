@@ -77,7 +77,7 @@ server <- function(input, output) {
     
     # draw boxplot
     boxplot(boxplotv1,boxplotv2,
-            ylim=c(0,1000),
+            ylim=c(0,500),
             names=c(label1,label2),
             main=input$BoxplotTitle,
             xlab=input$Boxplotxlab,
